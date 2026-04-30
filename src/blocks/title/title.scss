@@ -1,0 +1,20 @@
+@use 'lib' as *;
+
+.title {
+	$self: &;
+
+	font-family: "TTHP", sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: fluid(48px, 32px);
+	line-height: 1;
+
+	&_big {
+		font-size: fluid(64px, 36px);
+	}
+
+	&_big {
+		
+	}
+
+}

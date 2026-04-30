@@ -1,0 +1,8 @@
+@use 'lib' as *;
+
+.container {
+	$self: &;
+
+	width: min($containerWidth, calc(100% - $containerPadding * 2));
+	margin: 0 auto;
+}

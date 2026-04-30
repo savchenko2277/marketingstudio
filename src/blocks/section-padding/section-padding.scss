@@ -1,0 +1,7 @@
+@use 'lib' as *;
+
+.section-padding {
+	$self: &;
+
+	padding: fluid(96px, 48px) 0;
+}

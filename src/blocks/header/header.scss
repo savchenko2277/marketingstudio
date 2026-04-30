@@ -1,0 +1,208 @@
+@use 'lib' as *;
+
+.header {
+	$self: &;
+
+	position: fixed;
+	width: 100%;
+	z-index: 10;
+	transition: background $transition, border-radius $transition;
+
+	&_scroll {
+		background: rgba($color: $textColor, $alpha: 1);
+		border-radius: 0 0 16px 16px;
+
+		#{$self}__container {
+			padding: 16px 0;
+		}
+	}
+
+	&__btn-small.btn {
+		width: 100%;
+		max-width: 260px;
+
+		@include media("<=md") {
+			display: none;
+		}
+	}
+
+	&__container {
+		position: relative;
+		padding: 24px 0;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		transition: padding $transition;
+	}
+
+	&__logo {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		img {
+			object-fit: contain;
+			height: fluid(48px, 28px);
+		}
+	}
+
+	&__burger {
+		width: fluid(48px, 36px);
+		height: fluid(24px, 20px);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		span {
+			width: 100%;
+			height: fluid(4px, 2px);
+			background: #ffffff;
+			border-radius: 4px;
+			transition: all $transition;
+		}
+
+		&:hover {
+			span {
+				&:nth-child(1) {
+					width: 50%;
+					margin-right: 50%;
+				}
+				&:nth-child(3) {
+					width: 50%;
+					margin-left: 50%;
+				}
+			}
+		}
+	}
+
+	&__menu {
+		position: fixed;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba($color: #000000, $alpha: 0.8);
+		display: flex;
+		z-index: 100;
+		transition: all $transition;
+
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+
+		&.active {
+			opacity: 1;
+			visibility: visible;
+			pointer-events: all;
+
+			#{$self}__menu-content {
+				transform: translateX(0);
+			}
+		}
+	}
+
+	&__menu-close {
+		position: absolute;
+		top: 24px;
+		right: 24px;
+		width: fluid(32px, 28px);
+		height: fluid(32px, 28px);
+		z-index: 100;
+
+		img {
+			object-fit: contain;
+		}
+	}
+
+	&__menu-content {
+		position: relative;
+		height: 100%;
+		background: $bgColor;
+		flex: 1 1 auto;
+		max-width: 480px;
+		padding: 48px fluid(48px, 24px);
+		display: flex;
+		flex-direction: column;
+		border-radius: 0px 8px 8px 0px;
+		transform: translateX(-100%);
+		transition: all $transition;
+
+		@include media("<=xs") {
+			border-radius: 0;
+		}
+	}
+
+	&__logo-menu {
+		img {
+			object-fit: contain;
+			height: fluid(64px, 48px);
+		}
+
+		margin-bottom: fluid(48px, 32px);
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__list-item {}
+
+	&__link {
+		text-transform: uppercase;
+		font-size: fluid(18px, 16px);
+		padding: 6px 0;
+		display: block;
+		transition: all $transition;
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+
+	&__menu-bottom {
+		margin-top: auto;
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+
+	&__contacts {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	&__contact {
+		font-weight: 500;
+		font-size: 18px;
+		transition: all $transition;
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+
+	&__socials {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 16px;
+	}
+
+	&__social {
+		img {
+			width: 32px;
+			height: 32px;
+			object-fit: contain;
+		}
+
+		transition: all $transition;
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+
+}

@@ -1,0 +1,44 @@
+@use 'lib' as *;
+
+.line-text {
+	$self: &;
+	overflow: hidden;
+	padding: 16px 0;
+	border-top: 1px solid rgba($color: $textColor, $alpha: 0.3);
+	border-bottom: 1px solid rgba($color: $textColor, $alpha: 0.3);
+
+	&__container {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		flex-wrap: nowrap;
+	}
+
+	&__text {
+		font-family: "TTHP", sans-serif;
+		text-transform: uppercase;
+		font-weight: 700;
+		font-size: fluid(76px, 48px);
+		text-wrap: nowrap;
+		margin-right: 48px;
+	}
+
+	&__group {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		flex-wrap: nowrap;
+		animation: hideLine 7s linear infinite;
+	}
+
+	@keyframes hideLine {
+		0% {
+			transform: translateX(0);
+		}
+
+		100% {
+			transform: translateX(-100%);
+		}
+	}
+
+}

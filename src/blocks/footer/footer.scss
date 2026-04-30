@@ -1,0 +1,87 @@
+@use 'lib' as *;
+
+.footer {
+	$self: &;
+
+	background: $bgColor;
+	padding: fluid(64px, 48px) 0;
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__columns {
+		display: grid;
+		grid-template-columns: repeat(3, auto);
+		justify-content: space-between;
+		margin-bottom: 24px;
+		gap: fluid(48px, 32px);
+
+		@include media("<=md") {
+			grid-template-columns: 100%;
+		}
+	}
+
+	&__column {}
+
+	&__logo {
+		img {
+			object-fit: contain;
+			height: fluid(96px, 64px);
+		}
+	}
+
+	&__column-list {}
+
+	&__list-title {
+		margin-bottom: 16px;
+		font-size: fluid(18px, 16px);
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	&__list-item {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 8px;
+	}
+
+	&__link {
+		text-transform: uppercase;
+		transition: all $transition;
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+
+	&__social {
+		flex: 0 0 auto;
+		transition: all $transition;
+
+		img {
+			width: 24px;
+			height: 24px;
+			object-fit: contain;
+		}
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+
+	&__bottom {
+		display: flex;
+		flex-direction: column;
+		font-size: fluid(14px, 12px);
+	}
+
+	&__text {}
+
+}

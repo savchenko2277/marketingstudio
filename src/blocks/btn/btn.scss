@@ -1,0 +1,87 @@
+@use 'lib' as *;
+
+.btn {
+	$self: &;
+
+	@include flex-center;
+	font-weight: 600;
+	font-family: "TTHP", sans-serif;
+	text-transform: uppercase;
+	line-height: 1;
+	transition: all $transition;
+	color: #ffffff;
+	position: relative;
+	overflow: hidden;
+	padding: 20px 24px;
+	border-radius: 8px;
+
+	&_black {
+		background: $textColor;
+		box-shadow: inset 0 0 0 2px $textColor;
+		color: #ffffff;
+
+		&:hover {
+			background: none;
+			color: $textColor;
+		}
+	}
+
+	&_white {
+		background: #ffffff;
+		box-shadow: inset 0 0 0 2px #ffffff;
+		color: $textColor;
+
+		&:hover {
+			background: none;
+			color: #ffffff;
+		}
+	}
+
+	&_small {
+		padding: 14px 24px;
+		font-size: 14px;
+	}
+
+	&_rose {
+		color: #ffffff;
+		background: none;
+
+		&::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			background:
+				linear-gradient(135deg,
+					#ff5c97 0%,
+					#5c001d 100%);
+			z-index: -1;
+			transition: all $transition;
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			background:
+				linear-gradient(135deg,
+					#5c001d 0%,
+					#ff5c97 100%);
+			z-index: -1;
+			transition: all $transition;
+			opacity: 0;
+		}
+
+		&:hover {
+			&::before {
+				opacity: 1;
+			}
+			&::after {
+				opacity: 0;
+			}
+		}
+	}
+}

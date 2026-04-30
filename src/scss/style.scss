@@ -1,0 +1,62 @@
+@use 'lib' as * with(
+	$breakpoints: (
+		'xxxs': 360px,
+		'xxs': 480px,
+		'xs': 640px,
+		'sm': 780px,
+		'md': 960px,
+		'lg': 1100px,
+		'xlg': 1280px,
+		'xxlg': 1440px,
+		'xxxlg': 1680px,
+		'xxxxlg': 1928px
+	)
+);
+
+@use "../blocks/**/*.scss";
+
+// Подключение шрифтов
+
+@include font-face("TT Hoves Pro Trial Thin", "TTHP", 100);
+@include font-face("TT Hoves Pro Trial Light", "TTHP", 300);
+@include font-face("TT Hoves Pro Trial Regular", "TTHP", 400);
+@include font-face("TT Hoves Pro Trial Medium", "TTHP", 500);
+@include font-face("TT Hoves Pro Trial Bold", "TTHP", 700);
+@include font-face("TT Hoves Pro Trial Black", "TTHP", 900);
+
+@include font-face("Inter_18pt-Light", "Inter", 300);
+@include font-face("Inter_18pt-Regular", "Inter", 400);
+@include font-face("Inter_18pt-Medium", "Inter", 500);
+@include font-face("Inter_18pt-SemiBold", "Inter", 600);
+@include font-face("Inter_18pt-Bold", "Inter", 700);
+
+body, html {
+	background-color: $bgColor;
+	font-size: 16px;
+	color: $textColor;
+	font-family: "Inter";
+	line-height: 1.5;
+	font-weight: 400;
+	display: flex;
+	flex-flow: column nowrap;
+	min-height: 100vh;
+}
+
+body {
+	&.scroll-lock {
+		overflow: hidden;
+		padding-right: var(--sw);
+	}
+}
+
+.footer {
+	flex: 0 0 auto; 
+	margin-top: auto; 
+}
+
+.sprite {
+	display: none;
+}
+
+em { font-style: italic; }
+strong { font-weight: bold; }
