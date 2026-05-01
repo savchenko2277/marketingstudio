@@ -3,4 +3,9 @@
 .main {
 	$self: &;
 
+	padding-top: 74px;
+
+	@include media("<=md") {
+		padding-top: 52px;
+	}
 }

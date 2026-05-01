@@ -5,9 +5,77 @@ import "./blocks.js";
 import Swiper from "swiper";
 import { Autoplay, EffectFade } from "swiper/modules";
 
-// Функции
+class Accordions {
+	constructor(selector = '.accordeons', options = {}) {
+		this.containers = document.querySelectorAll(selector);
 
-// Ширина скроллбара
+		this.options = {
+			closeOthers: false, // только один открыт
+			allowClose: true,  // можно ли закрывать активный
+			onClick: null,
+			onOpen: null,
+			onClose: null,
+			...options
+		};
+
+		this.init();
+	}
+
+	init() {
+		this.containers.forEach(container => {
+			this.initContainer(container);
+		});
+	}
+
+	initContainer(container) {
+		const items = container.querySelectorAll('.accordeons__item');
+
+		items.forEach(item => {
+			const head = item.querySelector('.accordeons__item-head');
+
+			if (!head) return;
+
+			head.addEventListener('click', () => {
+				const isActive = item.classList.contains('active');
+
+				this.options.onClick?.(item, container);
+
+				if (isActive) {
+					if (this.options.allowClose) {
+						this.close(item);
+					}
+					return;
+				}
+
+				if (this.options.closeOthers) {
+					items.forEach(otherItem => {
+						if (otherItem !== item) {
+							this.close(otherItem);
+						}
+					});
+				}
+
+				this.open(item);
+			});
+		});
+	}
+
+	open(item) {
+		if (item.classList.contains('active')) return;
+
+		item.classList.add('active');
+		this.options.onOpen?.(item);
+	}
+
+	close(item) {
+		if (!item.classList.contains('active')) return;
+
+		item.classList.remove('active');
+		this.options.onClose?.(item);
+	}
+}
+
+// Функции
 const setScrollbarWidth = () => {
 	document.documentElement.style.setProperty('--sw', `${window.innerWidth - document.documentElement.clientWidth}px`);
 }
@@ -123,10 +191,39 @@ const setAdvantagesCounter = () => {
 	items.forEach(item => observer.observe(item));
 };
 
+const setDirectionsAccordeons = () => {
+	const directionsSection = document.querySelector('.directions');
+	if(!directionsSection) return;
+
+	const images = [...directionsSection.querySelectorAll('.directions__image')];
+
+	new Accordions('.directions__accordeons', {
+		closeOthers: true,
+		allowClose: false,
+
+		onClick: (item) => {
+			console.log('clicked', item);
+		},
+
+		onOpen: (item) => {
+			const allItems = [...item.parentElement.querySelectorAll('.accordeons__item')];
+			const index = allItems.indexOf(item);
+
+			images.forEach(image => image.classList.remove('active'));
+			images[index]?.classList.add('active');
+		},
+
+		onClose: (item) => {
+			console.log('closed', item);
+		}
+	});
+}
+
 // Запуск функций
 window.addEventListener("load", () => {
 	setScrollbarWidth();
 	setSwipers();
 	setHeader();
 	setAdvantagesCounter();
+	setDirectionsAccordeons();
 })

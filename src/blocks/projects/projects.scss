@@ -1,0 +1,125 @@
+@use 'lib' as *;
+
+.projects {
+	$self: &;
+
+	background: $bgColor;
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__title {
+		margin-bottom: fluid(48px, 32px);
+	}
+
+	&__cards {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: fluid(24px, 16px);
+
+		@include media("<=xlg") {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		@include media("<=md") {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@include media("<=xs") {
+			grid-template-columns: 100%;
+		}
+	}
+
+	&__card {
+		aspect-ratio: 9 / 12;
+		position: relative;
+		border-radius: fluid(16px, 8px);
+		overflow: hidden;
+		padding: 24px;
+		color: #ffffff;
+		display: flex;
+		flex-direction: column;
+		justify-content: end;
+
+		&:hover {
+			#{$self}__card-content {
+				grid-template-rows: max-content 1fr;
+			}
+			#{$self}__card-hidden {
+				padding-top: 16px;
+			}
+			#{$self}__card-bg {
+				&::after {
+					background: rgba($color: $textColor, $alpha: 0.8);
+				}
+			}
+		}
+	}
+
+	&__card-content {
+		position: relative;
+		z-index: 1;
+		display: grid;
+		grid-template-rows: max-content 0fr;
+		transition: all $transition;
+
+		@include media("<=lg") {
+			grid-template-rows: max-content 1fr;
+		}
+	}
+
+	&__card-hidden {
+		display: flex;
+		flex-direction: column;
+		gap: fluid(24px, 16px);
+		overflow: hidden;
+		transition: all $transition;
+
+		ul {
+			padding-left: 24px;
+			
+			li {
+				list-style: disc;
+			}
+		}
+
+		@include media("<=lg") {
+			padding-top: 16px;
+		}
+	}
+
+	&__card-title {
+		font-size: fluid(24px, 20px);
+	}
+
+	&__card-bg {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+
+		&::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba($color: $textColor, $alpha: 0.5);
+			transition: all $transition;
+
+			@include media("<=lg") {
+				background: rgba($color: $textColor, $alpha: 0.8);
+			}
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+}

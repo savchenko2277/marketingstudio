@@ -1,0 +1,16 @@
+@use 'lib' as *;
+
+.custom-input {
+	$self: &;
+
+	background:  #f3f5f7;
+	padding: 16px 32px;
+	border-radius: 8px;
+	font-size: fluid(16px, 14px);
+	box-shadow: inset 0 0 0 1px #e2e8f0;
+	transition: all $transition;
+
+	&:focus {
+		background: #cbd5e1;
+	}
+}

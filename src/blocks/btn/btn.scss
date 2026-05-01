@@ -14,6 +14,7 @@
 	overflow: hidden;
 	padding: 20px 24px;
 	border-radius: 8px;
+	z-index: 1;
 
 	&_black {
 		background: $textColor;

@@ -6,11 +6,10 @@
 	position: fixed;
 	width: 100%;
 	z-index: 10;
-	transition: background $transition, border-radius $transition;
+	transition: background $transition;
 
 	&_scroll {
 		background: rgba($color: $textColor, $alpha: 1);
-		border-radius: 0 0 16px 16px;
 
 		#{$self}__container {
 			padding: 16px 0;

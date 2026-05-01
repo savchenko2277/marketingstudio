@@ -1,0 +1,56 @@
+@use 'lib' as *;
+
+.promo {
+	$self: &;
+
+	position: relative;
+	color: #ffffff;
+	padding: fluid(128px, 96px) 0;
+
+	&__container {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		gap: fluid(48px, 32px);
+	}
+
+	&__title {
+
+	}
+
+	&__desc {
+		max-width: 640px;
+		font-size: fluid(18px, 16px);
+	}
+
+	&__btn.btn {
+		z-index: 2;
+		width: 100%;
+		max-width: 420px;
+	}
+
+	&__bg {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+
+		&::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba($color: $textColor, $alpha: 0.7);
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+}
