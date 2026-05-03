@@ -166,4 +166,14 @@
 		font-size: fluid(16px, 14px);
 	}
 
+	&__service {
+		display: flex;
+		flex-direction: column;
+		gap: fluid(24px, 16px);
+	}
+
+	&__service-text {
+		font-size: fluid(18px, 16px);
+	}
+
 }

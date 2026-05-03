@@ -1,0 +1,92 @@
+@use 'lib' as *;
+
+.faq {
+	$self: &;
+
+	background: $bgSectionColor;
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__title {
+		margin-bottom: fluid(48px, 32px);
+	}
+
+	&__items {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: fluid(24px, 16px);
+		max-width: 1024px;
+		width: 100%;
+	}
+
+	&__accordeon {
+		background: $bgColor;
+		border-radius: fluid(16px, 8px);
+
+		&.active {
+			#{$self}__accordeon-icon {
+				span::after {
+					transform: translate(-50%, -50%) rotate(0deg);
+				}
+			}
+		}
+	}
+
+	&__accordeon-head {
+		padding: fluid(16px, 12px) fluid(24px, 16px);
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		gap: 24px;
+	}
+
+	&__accordeon-title {
+		font-size: fluid(20px, 16px);
+	}
+
+	&__accordeon-icon {
+		@include flex-center;
+
+		width: fluid(40px, 32px);
+		height: fluid(40px, 32px);
+		background: none;
+		box-shadow: inset 0 0 0 1px rgba($color: $textColor, $alpha: 0.5);
+		border-radius: 50%;
+		flex: 0 0 auto;
+		transition: all $transition;
+
+		span {
+			position: relative;
+			width: fluid(20px, 16px);
+			height: 1px;
+			background: rgba($color: $textColor, $alpha: 0.5);
+
+			&::after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%) rotate(90deg);
+				width: fluid(20px, 16px);
+				height: 1px;
+				background: rgba($color: $textColor, $alpha: 0.5);
+				transition: all $transition;
+			}
+		}
+	}
+
+	&__accordeon-content {
+		
+	}
+
+	&__accordeon-text {
+		padding: 0 fluid(24px, 16px) fluid(24px, 16px) fluid(24px, 16px);
+	}
+
+}

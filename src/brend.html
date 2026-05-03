@@ -1,0 +1,64 @@
+@@include("_head.html", {"id":"home"}) 
+@@include("_header.html") 
+
+<main class="main main__padding">
+
+    <section class="promo">
+        <div class="promo__container container">
+            <h1 class="promo__title title title_big">Создание бренда от сильнейших экспертов индустрии</h1>
+            <p class="promo__desc">
+                Комплексное решение
+для запуска вашего ресторана
+            </p>
+            <a href="#" class="promo__btn btn btn_white">Заказать сайт</a>
+        </div>
+        <div class="promo__bg">
+            <img src="./img/hero/4.webp" alt="">
+        </div>
+    </section>
+
+    <section class="steps section-padding section-top">
+        <div class="steps__container container">
+            <h2 class="steps__title title">Как мы работаем?</h2>
+            <div class="steps__items">
+                <div class="steps__item">
+                    <img src="./img/steps/1.svg" alt="" class="steps__item-icon">
+                    <h4 class="steps__item-title title">Исследуем ваш бренд</h4>
+                    <p class="steps__item-text">
+                    Анализируем нишу, целевую аудиторию, конкурентов и особенности продукта, чтобы определить сильные стороны будущего бренда.
+                </p>
+                </div>
+
+                <div class="steps__item">
+                    <img src="./img/steps/2.svg" alt="" class="steps__item-icon">
+                    <h4 class="steps__item-title title">Разрабатываем концепцию</h4>
+                    <p class="steps__item-text">
+                    Формируем позиционирование, визуальное направление, tone of voice и стратегию бренда, согласовывая ключевые элементы будущей айдентики.
+                </p>
+                </div>
+
+                <div class="steps__item">
+                    <img src="./img/steps/3.svg" alt="" class="steps__item-icon">
+                    <h4 class="steps__item-title title">Запускаем бренд</h4>
+                    <p class="steps__item-text">
+                    Создаём фирменный стиль, бренд-материалы и готовим бренд к полноценному выходу на рынок с сильной и узнаваемой идентичностью.
+                </p>
+                </div>
+            </div>
+            <a href="#" class="steps__btn btn btn_rose">Узнать подробнее</a>
+        </div>
+    </section>
+
+    @@include("_line-text.html")
+
+    @@include("_callback.html", {
+        class: "section-padding"
+    })
+
+    @@include("_faq.html", {
+        class: "section-padding"
+    })
+
+</main>
+
+@@include("_bottom.html")

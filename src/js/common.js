@@ -3,7 +3,7 @@ import "./polyfills.js";
 import "./blocks.js";
 
 import Swiper from "swiper";
-import { Autoplay, EffectFade } from "swiper/modules";
+import { Autoplay, EffectFade, Navigation } from "swiper/modules";
 
 class Accordions {
 	constructor(selector = '.accordeons', options = {}) {
@@ -91,6 +91,31 @@ const setSwipers = () => {
 		},
 		autoplay: {
 			delay: 5000
+		}
+	});
+	const reviewsSwiper = new Swiper('.reviews__swiper.swiper', {
+		modules: [Navigation],
+		navigation: {
+			prevEl: '.custom-navigation__btn_prev',
+			nextEl: '.custom-navigation__btn_next'
+		},
+		breakpoints: {
+			0: {
+				slidesPerView: 1.05,
+				spaceBetween: 8
+			},
+			780: {
+				slidesPerView: 1.5,
+				spaceBetween: 16
+			},
+			1024: {
+				slidesPerView: 2,
+				spaceBetween: 24
+			},
+			1280: {
+				slidesPerView: 2.5,
+				spaceBetween: 24
+			}
 		}
 	})
 }
@@ -219,6 +244,16 @@ const setDirectionsAccordeons = () => {
 	});
 }
 
+const setFaqAccordeons = () => {
+	const faqSection = document.querySelector('.faq');
+	if(!faqSection) return;
+
+	new Accordions('.faq__items', {
+		closeOthers: true,
+		allowClose: true,
+	});
+}
+
 // Запуск функций
 window.addEventListener("load", () => {
 	setScrollbarWidth();
@@ -226,4 +261,5 @@ window.addEventListener("load", () => {
 	setHeader();
 	setAdvantagesCounter();
 	setDirectionsAccordeons();
+	setFaqAccordeons();
 })

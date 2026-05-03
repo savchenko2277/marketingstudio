@@ -1,0 +1,63 @@
+@@include("_head.html", {"id":"home"}) 
+@@include("_header.html") 
+
+<main class="main main__padding">
+
+    <section class="promo">
+        <div class="promo__container container">
+            <h1 class="promo__title title title_big">Ресторанный консалтинг</h1>
+            <p class="promo__desc">
+                Мы помогаем владельцам ресторанного бизнеса и инвесторам запустить проект с нуля или скорректировать работу уже существующего ресторанного бизнеса для увеличения прибыли.
+            </p>
+            <a href="#" class="promo__btn btn btn_white">Заказать сайт</a>
+        </div>
+        <div class="promo__bg">
+            <img src="./img/hero/4.webp" alt="">
+        </div>
+    </section>
+
+    <section class="steps section-padding section-top">
+        <div class="steps__container container">
+            <h2 class="steps__title title">Как мы работаем?</h2>
+            <div class="steps__items">
+                <div class="steps__item">
+                    <img src="./img/steps/1.svg" alt="" class="steps__item-icon">
+                    <h4 class="steps__item-title title">Погружаемся в ваш бизнес</h4>
+                    <p class="steps__item-text">
+                    Анализируем ресторан, текущие показатели, конкурентов и точки роста. Изучаем вашу концепцию, меню, аудиторию и потенциал для масштабирования.
+                </p>
+                </div>
+
+                <div class="steps__item">
+                    <img src="./img/steps/2.svg" alt="" class="steps__item-icon">
+                    <h4 class="steps__item-title title">Формируем стратегию</h4>
+                    <p class="steps__item-text">
+                    Определяем эффективную модель продвижения, согласовываем KPI, инструменты роста, этапы сотрудничества и фиксируем план развития проекта.
+                </p>
+                </div>
+
+                <div class="steps__item">
+                    <img src="./img/steps/3.svg" alt="" class="steps__item-icon">
+                    <h4 class="steps__item-title title">Запускаем и масштабируем</h4>
+                    <p class="steps__item-text">
+                    Внедряем стратегию продвижения, подключаем необходимые площадки, оптимизируем процессы, усиливаем маркетинг и увеличиваем поток заказов.
+                </p>
+                </div>
+            </div>
+            <a href="#" class="steps__btn btn btn_rose">Узнать подробнее</a>
+        </div>
+    </section>
+
+    @@include("_line-text.html")
+
+    @@include("_callback.html", {
+        class: "section-padding"
+    })
+
+    @@include("_faq.html", {
+        class: "section-padding"
+    })
+
+</main>
+
+@@include("_bottom.html")
